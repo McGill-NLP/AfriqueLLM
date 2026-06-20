@@ -1,0 +1,81 @@
+version: mt-nllb-v11-sft
+pipeline:
+  single:
+    - name: FilterbyLength
+      column: "source"
+      target_column: "target"
+      kargs:
+        min_char: 20 # chars
+        max_char: 10000 # chars
+        # min_percentile: 0.02
+        # max_percentile: 0.99
+
+    - name: FilterbyScore
+      inputs: 
+        - "comet-score"
+      kargs:
+        threshold: 0.93
+
+    - name: SwapBitext
+      kargs:
+        prob: 0.5
+        seed: 2026
+        # high_resource: ["eng_Latn", "fra_Latn", "arb_Arab", "por_Latn"]
+
+    - name: Sampling
+      kargs:
+        strategy: "uniform"
+        max_num_samples: 200000 # per language pair
+        seed: 2026
+        min_num_samples: 10000
+
+  # combine:
+  #   - LanguageFilter:
+  #       languages:
+  #         - eng_Latn
+  #         - fra_Latn
+  #         - arb_Arab
+  #         - por_Latn
+  #       limit: 40000000
+
+  output:
+    folder: data/parallel/processed/{{config_name}}/
+    prefix: "{{lang1}}-{{lang2}}.json"
+    # - UniMax: Fairer and more Effective Language Sampling for Large-Scale Multilingual Pretraining
+
+task: sft
+# task: pt
+task-templates:
+  # - "{{source}} sentence: {{source_column}} \n{{target}} sentence: . Return only the translated sentence."
+  # - "You are a translation expert. Translate the following {{source}} sentences to {{target}} \n{{source}} sentence: {{source_column}}\n{{target}} sentence: . Return only the translated sentence."
+  # - "As a {{source}} and {{target}}, translate the following {{source}} sentences to {{target}}. \n{{source}} sentence: {{source_column}}\n{{target}} sentence: . Return only the translated sentence."
+  - "Translate the {source} content to {target}."
+content-templates:
+  - "{source_content}\n"
+eos-token: "<end_of_turn>"
+
+languages:
+  - afr_Latn
+  - swa_Latn
+  - ary_Arab
+  - som_Latn
+  - por_Latn
+  - eng_Latn
+  - arb_Arab
+  - fra_Latn
+  - amh_Ethi
+  - arz_Arab
+  - hau_Latn
+  - kin_Latn
+  - zul_Latn
+  - ibo_Latn
+  - plt_Latn
+  - xho_Latn
+  - sna_Latn
+  - yor_Latn
+  - nya_Latn
+  - sot_Latn
+  - tir_Ethi
+  - aeb_Arab
+  - orm_Latn
+  - tsn_Latn

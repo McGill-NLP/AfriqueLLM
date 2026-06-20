@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+
+data/mixture/
+data/parallel/parquet/
+data/parallel/comet-score/
+data/synthetic/source/
+data/synthetic/translated/
+preprocessed_data/
+outputs/
+logs/
+wandb/
+checkpoints/

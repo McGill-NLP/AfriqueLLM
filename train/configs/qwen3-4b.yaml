@@ -1,0 +1,45 @@
+## Actual submission: 4 nodes x 8 GPUs (32 total), ZeRO-1, batch/GPU 8, grad accumulation 1.
+### model
+model_name_or_path: Qwen/Qwen3-4B-Base
+template: empty
+### method
+stage: pt
+packing: true
+do_train: true
+finetuning_type: full
+deepspeed: train/deepspeed/ds_z1_config.json
+flash_attn: fa3
+
+### dataset
+cutoff_len: 16384
+overwrite_cache: false
+preprocessing_num_workers: 32
+dataloader_num_workers: 32
+
+### output
+logging_steps: 10
+save_steps: 1000
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: wandb  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+data_shared_file_system: true
+
+### train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 1
+learning_rate: 5.0e-5
+num_train_epochs: 1.0
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs: 
+  min_lr_rate: 0.01 # Will be overridden by command line for cosine scheduler
+warmup_ratio: 0.001
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+weight_decay: 0.1 #  (float, optional, defaults to 0) — The weight decay to apply (if not zero) to all layers except all bias and LayerNorm weights in AdamW optimizer.
+adam_beta1: 0.9 # (float, optional, defaults to 0.9) — The beta1 hyperparameter for the AdamW optimizer.
+adam_beta2: 0.95 # (float, optional, defaults to 0.999) — The beta2 hyperparameter for the AdamW optimizer.
+
+### training
+enable_liger_kernel: true
