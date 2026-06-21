@@ -20,6 +20,7 @@ The Hugging Face collection is the source of truth for released model paths.
 | [`McGill-NLP/AfriqueQwen-4B`](https://huggingface.co/McGill-NLP/AfriqueQwen-4B) | `Qwen/Qwen3-4B-Base` | ~26B | `train/configs/qwen3-4b.yaml` | Qwen 4B |
 | [`McGill-NLP/AfriqueQwen3.5-4B`](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B) | `Qwen/Qwen3.5-4B-Base` | ~26B | `train/configs/qwen3.5-4b.yaml` | Qwen 3.5 4B |
 | [`McGill-NLP/AfriqueQwen3.5-4B-ExtendedCM`](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-ExtendedCM) | `Qwen/Qwen3.5-4B-Base` | ~34B | `train/configs/qwen3.5-4b.yaml` | extended code/math |
+| [`McGill-NLP/AfriqueQwen3.5-4B-50Langs`](https://huggingface.co/McGill-NLP/AfriqueQwen3.5-4B-50Langs) | `Qwen/Qwen3.5-4B-Base` | ~35.5B | `train/configs/qwen3.5-4b.yaml` | extended language coverage |
 | [`McGill-NLP/AfriqueGemma-12B`](https://huggingface.co/McGill-NLP/AfriqueGemma-12B) | `google/gemma-3-12b-pt` | ~26B | `train/configs/gemma3-12b-pt.yaml` | Gemma 12B |
 | [`McGill-NLP/AfriqueGemma-4B`](https://huggingface.co/McGill-NLP/AfriqueGemma-4B) | `google/gemma-3-4b-pt` | ~26B | `train/configs/gemma3-4b-pt.yaml` | Gemma 4B |
 | [`McGill-NLP/AfriqueLlama-8B`](https://huggingface.co/McGill-NLP/AfriqueLlama-8B) | `meta-llama/Llama-3.1-8B` | ~26B | `train/configs/llama3.1-8b.yaml` | Llama 3.1 8B |
