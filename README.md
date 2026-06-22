@@ -1,11 +1,12 @@
 # AfriqueLLM
 
 [![Paper](https://img.shields.io/badge/arXiv-2601.06395-b31b1b.svg)](https://arxiv.org/abs/2601.06395)
+[![ACL](https://img.shields.io/badge/Accepted%20to-ACL-blue)](https://arxiv.org/abs/2601.06395)
 [![Models](https://img.shields.io/badge/Hugging%20Face-AfriqueLLM-yellow)](https://huggingface.co/collections/McGill-NLP/afriquellm)
 
 AfriqueLLM is a suite of open language models adapted to African languages through continued pre-training. This repository contains the public data recipes, training configs, and evaluation commands used for the release.
 
-- Paper: [AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages](https://arxiv.org/abs/2601.06395)
+- Paper: [AfriqueLLM: How Data Mixing and Model Architecture Impact Continued Pre-training for African Languages](https://arxiv.org/abs/2601.06395) (accepted to ACL 2026)
 - Models: [McGill-NLP AfriqueLLM collection](https://huggingface.co/collections/McGill-NLP/afriquellm)
 - Evaluation: lm-eval based benchmark commands in [`eval/INSTRUCTION.md`](eval/INSTRUCTION.md)
 
